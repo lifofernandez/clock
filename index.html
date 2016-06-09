@@ -1,20 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Clock</title>
+	<style type="text/css">
+		body {
+			background: #000; 
+		}
+	</style>
+</head>
+
+<body>
+
+</body>
 <script src="/socket.io/socket.io.js"></script>
+
 <script>
-  var socket = io('http://localhost');
 
-  	socket.on('news', function (data) {
+	var socket = io('192.168.3.57');
 
-    	console.log(data);
-
-    	socket.emit('my other event', { my: 'data' });
-
-  	});
-
-	socket.on('click', function (data) {
-
-    	console.log(data);
-
+	socket.on('news', function (data) {
+		console.log(data);
+		socket.emit('my other event', { my: 'data' });
 
 	});
 
+	socket.on('click', function (data) {
+		//console.log(data);
+		document.body.style.background = '#FFF';
+		setTimeout(
+			function() {
+				document.body.style.background = '#000';
+			}, 
+			100
+		);
+	});
+
 </script>
+</html>
+

@@ -19,7 +19,7 @@ function handler (req, res) {
 
 
 // Main Vars
-var tempo = 1000;
+var tempo = 500;
 
 
 setInterval(
@@ -34,7 +34,6 @@ setInterval(
 
 io.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
-
 
   socket.on('my other event', function (data) {
      console.log(data);
