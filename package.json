@@ -1,0 +1,28 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "socket.io global click",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lifofernandez/clock.git"
+  },
+  "keywords": [
+    "metro",
+    "click",
+    "sync",
+    "beat"
+  ],
+  "author": "lifofernandez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lifofernandez/clock/issues"
+  },
+  "homepage": "https://github.com/lifofernandez/clock#readme",
+  "dependencies": {
+    "socket.io": "^1.4.6"
+  }
+}
