@@ -1,3 +1,7 @@
 # clock
-El proposito de este proyecto es brodcastear un click general syncronizado a todos los clientes...
+## proposito:
+broadcastear un pulso global unico a todos los clientes...
+
+## estado:
+probando ws en perl
 

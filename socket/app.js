@@ -19,13 +19,13 @@ function handler (req, res) {
 
 
 // Main Vars
-var tempo = 500;
+var tempo = 1000;
 
 
 setInterval(
-  function(){   
+  function(){
     io.sockets.emit('click', { play: true });
-  }, 
+  },
   tempo
 );
 
