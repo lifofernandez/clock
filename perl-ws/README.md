@@ -1,6 +1,6 @@
 $ sudo cpan i Net::WebSocket::Server AnyEvent::WebSocket::Client
-$ perl server.pl
 
+$ perl server.pl
 $ perl client.pl
 
 $ php -S localhost:8081
