@@ -19,6 +19,7 @@
 
 ws.onopen = function() {
 		console.log('Connection is established!');
+		 ws.send('Hi, im a web client!');
 };
 
 ws.onclose = function() {
@@ -39,11 +40,11 @@ ws.onmessage = function(e) {
 		);
 };
 
-setTimeout(
-  function(){
-    ws.send('Hello, world!');
-  },
-  1000
-);
+// setTimeout(
+//   function(){
+//     ws.send('Hello, world!');
+//   },
+//   1000
+// );
 
 </script>
