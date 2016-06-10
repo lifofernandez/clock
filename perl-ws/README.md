@@ -7,4 +7,4 @@ $ php -S localhost:8081
 $ firefox http://localhost:8081
 
 
-# por leer: http://showmetheco.de/articles/2011/2/diving-into-html5-with-websockets-and-perl.html
+revisar: http://showmetheco.de/articles/2011/2/diving-into-html5-with-websockets-and-perl.html
