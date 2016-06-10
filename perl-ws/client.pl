@@ -5,7 +5,7 @@ use AnyEvent::WebSocket::Client 0.12;
 
 my $client = AnyEvent::WebSocket::Client->new;
 
-$client->connect("ws://localhost:8080")->cb(sub {
+$client->connect("ws://localhost:80")->cb(sub {
 
 	# make $connection an our variable rather than
 	# my so that it will stick around.  Once the
@@ -20,21 +20,15 @@ $client->connect("ws://localhost:8080")->cb(sub {
 	}
 
 
-
-
 	# send a message through the websocket...
-	$connection->send('a message');
+	$connection->send('Hi, im a client!');
 
-	$connection->send(
-		AnyEvent::WebSocket::Message->new(body => "some message"),
-	);
-
-	# recieve message from the websocket...
+	# recieve messages from the websocket...
 	$connection->on(each_message => sub {
 		# $connection is the same connection object
 		# $message isa AnyEvent::WebSocket::Message
 		my($connection, $message) = @_;
-		print Dumper($message);
+		say 'Got new message: '.$message->body;
 	});
 
 
@@ -44,10 +38,16 @@ $client->connect("ws://localhost:8080")->cb(sub {
 	$connection->on(finish => sub {
 		# $connection is the same connection object
 		my($connection) = @_;
+		say 'Connection terminated!'
 	});
 
-	# close the connection (either inside or
-	# outside another callback)
-	$connection->close;
+	# uncomment to Terminate Connection!
+	# close the connection (either inside or outside another callback)
+	# $connection->close;
 
 	});
+
+# uncomment to enter the event loop before exiting.
+# Note that calling recv on a condition variable before
+# it has been triggered does not work on all event loops
+AnyEvent->condvar->recv;

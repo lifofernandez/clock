@@ -19,4 +19,4 @@ my $line;
 while ($line = <SOCKET>) {
         print "$line\n";
 }
-close SOCKET or die "close: $!";
+# close SOCKET or die "close: $!";

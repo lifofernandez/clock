@@ -1,3 +1,6 @@
+<!-- servir esta web en otro puerto que no sea el mismo que el servidor websocket -->
+<!-- cliente node socket io para perl WS server (NO CONECTA)-->
+
 <!DOCTYPE html>
 <html>
 
@@ -9,21 +12,16 @@
 		}
 	</style>
 </head>
+<body></body>
 
-<body>
-
-</body>
-<script src="/socket.io/socket.io.js"></script>
-
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script>
-
-	var socket = io('localhost:80');
+  var socket = io('localhost:80');
 
 	socket.on('news', function (data) {
 		console.log(data);
 		socket.emit('my other event', { my: 'data' });
 	});
-
 
 
 	socket.on('click', function (data, audio) {
@@ -40,5 +38,3 @@
 	});
 
 </script>
-</html>
-

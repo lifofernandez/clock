@@ -1,3 +1,6 @@
+<!-- servir esta web en otro puerto que no sea el mismo que el servidor websocket -->
+<!-- cliente js vanilla para perl WS server -->
+
 <!DOCTYPE html>
 <html>
 
@@ -9,8 +12,38 @@
 		}
 	</style>
 </head>
-<body>
+<body></body>
 
-</body>
-<!-- servir esta web en otro puerto que no sea 8080 -->
-<script src="client.js"></script>
+<script type="text/javascript">
+	var ws = new WebSocket('ws://localhost:80');
+
+ws.onopen = function() {
+		console.log('Connection is established!');
+};
+
+ws.onclose = function() {
+		console.log('Connection terminated');
+};
+
+ws.onmessage = function(e) {
+		var message = e.data;
+		console.log('Got new message: ' + message);
+
+		// Visual blik
+		document.body.style.background = '#FFF';
+		setTimeout(
+			function() {
+				document.body.style.background = '#000';
+			},
+			20
+		);
+};
+
+setTimeout(
+  function(){
+    ws.send('Hello, world!');
+  },
+  1000
+);
+
+</script>
